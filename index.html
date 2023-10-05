@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./Styles.css" />
+    <script src="./main.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Victor Ramirez</title>
+  </head>
+
+  <body>
+    <div class="encabezado">
+      <h2 class="fr">Formulario de Registro</h2>
+    </div>
+
+    <div class="contenido">
+      <h4 id="alert" style="color: red"></h4>
+      <h4 id="alert2" style="color: green"></h4>
+      <label for="fnombre">Nombre:</label>
+      <br />
+      <input
+        type="text"
+        id="fnombre"
+        name="fnombre"
+        placeholder="Ingresa tu nombre..."
+      />
+      <br />
+      <br />
+      <label for="fapellido">Apellido:</label>
+      <br />
+      <input
+        type="text"
+        id="fapellido"
+        name="fapellido"
+        placeholder="Ingresa tu apellido..."
+      />
+      <br />
+      <br />
+      <br />
+      <label for="tipo">Tipo de Documento:</label>
+      <br />
+      <select id="tipo" name="tipo">
+        <option value="cc">Cédula de Ciudadanía</option>
+        <option value="te">Tarjeta de Identidad</option>
+        <option value="ce">Cédula de Extranjería</option>
+        <option value="pa">Pasaporte</option>
+        <option value="ot">Otro</option>
+      </select>
+      <br />
+      <br />
+      <label for="ndocumento">Número de Documento:</label><br />
+      <input
+        type="text"
+        id="ndocumento"
+        name="ndocumento"
+        placeholder="Digite su N° de Documento..."
+      />
+      <br />
+      <br />
+      <label for="genero">Género:</label><br />
+      <select id="genero" name="genero">
+        <option value="Masculino">Masculino</option>
+        <option value="Femenino">Femenino</option>
+      </select>
+      <br />
+      <br />
+      <label for="telf">Teléfono:</label>
+      <br />
+      <input
+        type="tel"
+        id="telf"
+        name="telf"
+        placeholder="Digite el N° de celular..."
+      />
+      <br />
+      <br />
+      <label for="Correo">Correo:</label>
+      <br />
+      <input
+        type="Correo"
+        id="Correo"
+        name="Correo"
+        placeholder="Escribe tu email..."
+      />
+      <br />
+      <br />
+      <label for="fechan">Fecha de Nacimiento:</label>
+      <br />
+      <input type="date" id="fechan" name="fechan" /><br />
+      <br />
+      <br />
+      <input type="checkbox" id="terminos" name="terminos" />
+      <label for="terminos">Acepto los términos y condiciones.</label>
+      <br />
+      <input type="checkbox" id="notificacion" name="notificacion" />
+      <label for="notificacion"
+        >Deseo recibir notificaciones por correo electrónico.</label
+      >
+      <br />
+      <br />
+      <input type="submit" value="Registrarme" onclick="validar()" />
+    </div>
+  </body>
+</html>
