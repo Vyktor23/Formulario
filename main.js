@@ -1,3 +1,7 @@
+const datos = [];
+let indice = null;
+
+
 function registro() {
   let nombre = document.getElementById("fnombre").value;
   let apellido = document.getElementById("fapellido").value;
@@ -10,7 +14,9 @@ function registro() {
   let aceptaTerminos = document.getElementById("terminos").checked;
   let recibirNotificaciones = document.getElementById("notificacion").checked;
 
-  let datosUsuario = {
+    datos.push()
+
+  let Usuario = {
     nombre: nombre,
     apellido: apellido,
     tipoDocumento: tipoDocumento,
@@ -21,10 +27,15 @@ function registro() {
     fechaNacimiento: fechaNacimiento,
     aceptaTerminos: aceptaTerminos,
     recibirNotificaciones: recibirNotificaciones,
-  };
 
-  console.log(datosUsuario);
+  };
+  console.log(datos);
+  datos.push(Usuario);
+  
+  pintar()
+document.getElementById("tabla").innerHTML=""
 }
+
 
 function validar() {
   let fechaNacimiento = new Date(document.getElementById("fechan").value);
@@ -107,10 +118,77 @@ function validar() {
     }, 3000);
   } else {
     registro();
+    pintar();
     document.getElementById("alert2").textContent =
       "¡Felicidades registro exitoso!";
     setTimeout(() => {
       document.getElementById("alert").textContent = "";
     }, 5000);
   }
+}
+
+
+function pintar(){
+  let frag= document.createDocumentFragment()
+
+  datos.forEach((item, index) => {
+
+    let tr = document.createElement("tr")
+    let td1 = document.createElement("td")
+    let td2 = document.createElement("td")
+    let td3 = document.createElement("td")
+    let td4 = document.createElement("td")
+    let td5 = document.createElement("td")
+    let td6 = document.createElement("td")
+    let td7 = document.createElement("td")
+    let td8 = document.createElement("td")
+    let editar = document.createElement("button")
+    let eliminar = document.createElement("button")
+
+    editar.textContent = "📝";
+    editar.addEventListener("click", () => {
+      document.querySelector("#ac").value = "Actualizar";
+      edit(item, index);
+  });
+    eliminar.textContent="❌";
+    eliminar.addEventListener("click", () => {
+      delet(index);
+  })
+
+    td1.textContent=item.nombre
+    td2.textContent=item.apellido
+    td3.textContent=item.tipoDocumento
+    td4.textContent=item.numDocumento
+    td5.textContent=item.telefono
+    td6.textContent=item.correo
+    td7.textContent=item.fechaNacimiento
+    td8.appendChild(editar)
+    td8.appendChild(eliminar)
+
+    tr.appendChild(td1)
+    tr.appendChild(td2)
+    tr.appendChild(td3)
+    tr.appendChild(td4)
+    tr.appendChild(td5)
+    tr.appendChild(td6)
+    tr.appendChild(td7)
+    tr.appendChild(td8)
+    frag.appendChild(tr)
+
+    document.getElementById("tabla").appendChild(frag)
+  })
+}
+
+
+
+function delet(i) {
+  indice = i;
+  datos.splice(indice, 1);
+
+  document.getElementById("tabla").innerHTML = "";
+  pintar();
+}
+
+function editar (item) {
+
 }
