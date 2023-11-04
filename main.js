@@ -188,7 +188,3 @@ function delet(i) {
   document.getElementById("tabla").innerHTML = "";
   pintar();
 }
-
-function editar (item) {
-
-}
